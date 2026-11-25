@@ -12,7 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <style>
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <!-- <style>
         /* ===== ROOT COLORS & GLOBAL ===== */
         :root {
             --pink-50: #fff4f7;
@@ -485,7 +487,7 @@
                 justify-content: flex-start
             }
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -511,11 +513,13 @@
 
                 <div class="collapse navbar-collapse justify-content-center order-lg-2" id="mainMenu">
                     <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
 
 
 
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./about-us/">About Us</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="./shop/">Shop</a></li>
 
 
 
@@ -607,301 +611,214 @@
 
 
 
-    <style>
-        /* ===== SHOP BY CATEGORY ===== */
-        /* flavor tints (card colors); everything else uses your :root variables */
-        :root {
-            --tone-lemon: #ffe27a;
-            --tone-lemon-soft: #fff4c2;
-            --tone-mint: #8fe0d2;
-            --tone-mint-soft: #d4f6f0;
-            --tone-peach: #ffb9bd;
-            --tone-peach-soft: #ffe3e4;
-            --tone-melon: #ff8f9c;
-            --tone-melon-soft: #ffd3d8;
-            --tone-apple: #bfe27a;
-            --tone-apple-soft: #e7f6c9;
-            --tone-grape: #d4a0f2;
-            --tone-grape-soft: #efdcfb;
-        }
-
-        .cat-section {
-            background: linear-gradient(180deg, var(--white), var(--pink-50));
-            padding: 3rem 0 3.5rem;
-        }
-
-        .cat-head {
-            text-align: center;
-            margin-bottom: 1.6rem
-        }
-
-        .cat-title {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            color: var(--ink);
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem
-        }
-
-        .cat-title::before,
-        .cat-title::after {
-            content: "";
-            width: 56px;
-            height: 1px;
-            background: var(--gold-400)
-        }
-
-        .cat-sub {
-            font-size: 1rem;
-            color: var(--ink-soft);
-            margin: .2rem 0 0
-        }
-
-        /* card */
-        .cat-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            padding: .9rem .7rem 1rem;
-            border-radius: 22px;
-            border: 1px solid var(--tone);
-            background: linear-gradient(180deg, var(--tone-soft), var(--tone));
-            box-shadow: 0 10px 24px rgba(217, 72, 127, .12), inset 0 0 0 4px rgba(255, 255, 255, .35);
-            color: var(--ink);
-            transition: transform .25s, box-shadow .25s
-        }
-
-        .cat-card:hover {
-            color: var(--ink);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(217, 72, 127, .22), inset 0 0 0 4px rgba(255, 255, 255, .35)
-        }
-
-        .tone-lemon {
-            --tone: var(--tone-lemon);
-            --tone-soft: var(--tone-lemon-soft)
-        }
-
-        .tone-mint {
-            --tone: var(--tone-mint);
-            --tone-soft: var(--tone-mint-soft)
-        }
-
-        .tone-peach {
-            --tone: var(--tone-peach);
-            --tone-soft: var(--tone-peach-soft)
-        }
-
-        .tone-melon {
-            --tone: var(--tone-melon);
-            --tone-soft: var(--tone-melon-soft)
-        }
-
-        .tone-apple {
-            --tone: var(--tone-apple);
-            --tone-soft: var(--tone-apple-soft)
-        }
-
-        .tone-grape {
-            --tone: var(--tone-grape);
-            --tone-soft: var(--tone-grape-soft)
-        }
-
-        /* white "cloud" label on the pack */
-        .cat-label {
-            width: 100%;
-            text-align: center;
-            line-height: 1.05;
-            padding: .7rem .4rem 1.1rem;
-            background: rgba(255, 255, 255, .78);
-            border-radius: 14px 14px 50% 50% / 14px 14px 22px 22px
-        }
-
-        .cat-label small {
-            display: block;
-            font-size: .6rem;
-            letter-spacing: .18em;
-            font-weight: 500;
-            margin-bottom: .2rem
-        }
-
-        .cat-label strong {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: clamp(.95rem, 1.5vw, 1.15rem);
-            letter-spacing: .03em
-        }
-
-        /* soap image slot */
-        .cat-media {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin-top: -.5rem;
-            padding: .6rem 0
-        }
-
-        .cat-media img {
-            max-width: 88%;
-            height: auto;
-            filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .12))
-        }
-
-        /* small flavor icon + name pill */
-        .cat-icon {
-            width: 26px;
-            height: 26px;
-            object-fit: contain;
-            margin-bottom: -6px;
-            position: relative;
-            z-index: 1
-        }
-
-        .cat-name {
-            background: rgba(255, 255, 255, .85);
-            border: 1px solid var(--tone);
-            border-radius: 50px;
-            padding: .2rem 1.3rem;
-            font-size: .9rem
-        }
-
-        /* view all button */
-        .btn-cat {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            border: 1px solid var(--gold-600);
-            color: var(--ink);
-            background: transparent;
-            border-radius: 50px;
-            padding: .6rem 1.6rem;
-            font-weight: 500;
-            transition: all .2s
-        }
-
-        .btn-cat i {
-            font-size: .8rem;
-            color: var(--gold-600)
-        }
-
-        .btn-cat:hover {
-            background: var(--gold-grad);
-            border-color: transparent;
-            color: #fff
-        }
-
-        .btn-cat:hover i {
-            color: #fff
-        }
-
-        @media (max-width:575.98px) {
-
-            .cat-title::before,
-            .cat-title::after {
-                width: 28px
-            }
-        }
-    </style>
 
 
 
-    <!-- ================= SHOP BY CATEGORY ================= -->
-    <section class="cat-section" id="categories">
+
+    <!-- ================= SOAP PRODUCTS ================= -->
+    <section class="soap-section" id="soap-products">
         <div class="container">
 
-            <div class="cat-head">
-                <h2 class="cat-title">ALL Products</h2>
-                <p class="cat-sub">Discover our popular collection</p>
+            <div class="soap-head">
+                <h2 class="soap-title">Gummy Soap</h2>
+                <p class="soap-sub">Discover our popular collection</p>
             </div>
 
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 g-lg-4 justify-content-center">
 
                 <!-- Lemon -->
                 <div class="col">
-                    <a href="lemon.html" class="cat-card tone-lemon">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="./assets/img/soap-products/lemon-soap.png"
+                    <a href="lemon.html" class="soap-card soap-tone-lemon">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/lemon-soap.png"
                                 alt="Lemon gummy soap">
                         </div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Lemon</span>
+                        <span class="soap-name">Lemon</span>
                     </a>
                 </div>
 
                 <!-- Mint -->
                 <div class="col">
-                    <a href="mint.html" class="cat-card tone-mint">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="./assets/img/soap-products/mint-soap.png"
+                    <a href="mint.html" class="soap-card soap-tone-mint">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/mint-soap.png"
                                 alt="Mint gummy soap">
                         </div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Mint</span>
+                        <span class="soap-name">Mint</span>
                     </a>
                 </div>
 
                 <!-- Peach -->
                 <div class="col">
-                    <a href="peach.html" class="cat-card tone-peach">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="./assets/img/soap-products/peach-soap.png"
+                    <a href="peach.html" class="soap-card soap-tone-peach">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/peach-soap.png"
                                 alt="Peach gummy soap">
                         </div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Peach</span>
+                        <span class="soap-name">Peach</span>
                     </a>
                 </div>
 
                 <!-- Watermelon -->
                 <div class="col">
-                    <a href="watermelon.html" class="cat-card tone-melon">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="./assets/img/soap-products/Watermelon-soap.png"
+                    <a href="watermelon.html" class="soap-card soap-tone-melon">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/Watermelon-soap.png"
                                 alt="Watermelon gummy soap"></div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Watermelon</span>
+                        <span class="soap-name">Watermelon</span>
                     </a>
                 </div>
 
                 <!-- Green Apple -->
                 <div class="col">
-                    <a href="green-apple.html" class="cat-card tone-apple">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="assets/img/soap-products/green-apple-soap.png"
+                    <a href="green-apple.html" class="soap-card soap-tone-apple">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/green-apple-soap.png"
                                 alt="Green apple gummy soap"></div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Green Apple</span>
+                        <span class="soap-name">Green Apple</span>
                     </a>
                 </div>
 
                 <!-- Grape -->
                 <div class="col">
-                    <a href="grape.html" class="cat-card tone-grape">
-                        <div class="cat-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
-                        <div class="cat-media"><img src="assets/img/soap-products/grape-soap.png"
+                    <a href="grape.html" class="soap-card soap-tone-grape">
+                        <div class="soap-label"><small>CHIMMY</small><strong>GUMMY<br>SOAP</strong></div>
+                        <div class="soap-media"><img src="./assets/img/soap-products/grape-soap.png"
                                 alt="Grape gummy soap">
                         </div>
-                        <!-- <img class="cat-icon" src="https://placehold.co/40x40?text=i" alt=""> -->
-                        <span class="cat-name">Grape</span>
+                        <span class="soap-name">Grape</span>
                     </a>
                 </div>
 
             </div>
 
             <div class="text-center mt-4">
-                <a href="shop.html" class="btn-cat">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="soap.html" class="btn-soap">View All Soaps <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
         </div>
     </section>
-    <!-- ================= /SHOP BY CATEGORY ================= -->
+    <!-- ================= /SOAP PRODUCTS ================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ================= PEELING GEL PRODUCTS ================= -->
+    <section class="gel-section" id="gel-products">
+        <div class="container">
+            <div class="gel-head">
+                <h2 class="gel-title">Peeling Gel</h2>
+                <p class="gel-sub">Gentle exfoliation for fresh, glowing skin</p>
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 g-lg-4 justify-content-center">
+
+                <!-- Gluta White -->
+                <div class="col">
+                    <a href="gluta-white.html" class="gel-card gel-tone-gluta">
+                        <div class="gel-media">
+                            <span class="gel-sparkle s1"></span>
+                            <span class="gel-sparkle s2"></span>
+                            <img src="./assets/img/gel-products/gel-gluta-white.png"
+                                alt="Chimmy Gluta White peeling gel">
+                        </div>
+                        <div class="gel-label">
+                            <small class="gel-brand">CHIMMY</small>
+                            <h3 class="gel-name">Gluta<br>White</h3>
+                            <span class="gel-type">Peeling Gel</span>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Matcha -->
+                <div class="col">
+                    <a href="matcha.html" class="gel-card gel-tone-matcha">
+                        <div class="gel-media">
+                            <span class="gel-sparkle s1"></span>
+                            <span class="gel-sparkle s2"></span>
+                            <img src="./assets/img/gel-products/gel-matcha.png" alt="Chimmy Matcha peeling gel">
+                        </div>
+                        <div class="gel-label">
+                            <small class="gel-brand">CHIMMY</small>
+                            <h3 class="gel-name">Matcha</h3>
+                            <span class="gel-type">Peeling Gel</span>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Mixed Fruit -->
+                <div class="col">
+                    <a href="mixed-fruit.html" class="gel-card gel-tone-fruit">
+                        <div class="gel-media">
+                            <span class="gel-sparkle s1"></span>
+                            <span class="gel-sparkle s2"></span>
+                            <img src="./assets/img/gel-products/gel-mixed-fruit.png"
+                                alt="Chimmy Mixed Fruit peeling gel">
+                        </div>
+                        <div class="gel-label">
+                            <small class="gel-brand">CHIMMY</small>
+                            <h3 class="gel-name">Mixed<br>Fruit</h3>
+                            <span class="gel-type">Peeling Gel</span>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sexy Forever -->
+                <div class="col">
+                    <a href="sexy-forever.html" class="gel-card gel-tone-sexy">
+                        <div class="gel-media">
+                            <span class="gel-sparkle s1"></span>
+                            <span class="gel-sparkle s2"></span>
+                            <img src="./assets/img/gel-products/gel-sexy-forever.png"
+                                alt="Chimmy Sexy Forever Pomegranate peeling gel">
+                        </div>
+                        <div class="gel-label">
+                            <small class="gel-brand">CHIMMY</small>
+                            <h3 class="gel-name">Sexy<br>Forever</h3>
+                            <span class="gel-type">Pomegranate Peeling Gel</span>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Star Gold Caviar -->
+                <div class="col">
+                    <a href="star-gold-caviar.html" class="gel-card gel-tone-gold">
+                        <div class="gel-media">
+                            <span class="gel-sparkle s1"></span>
+                            <span class="gel-sparkle s2"></span>
+                            <img src="./assets/img/gel-products/gel-start-gold-caviar.png"
+                                alt="Chimmy Star Gold Caviar peeling gel">
+                        </div>
+                        <div class="gel-label">
+                            <small class="gel-brand">CHIMMY</small>
+                            <h3 class="gel-name">Star Gold<br>Caviar</h3>
+                            <span class="gel-type">Peeling Gel</span>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="gel.html" class="btn-gel">View All Gels <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= /PEELING GEL PRODUCTS ================= -->
 
 
 
@@ -1150,221 +1067,7 @@
 
 
 
-    <style>
-        /* ===== FOOTER ===== */
-        .site-footer {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(180deg, var(--pink-50), var(--pink-100));
-            padding-top: 2.8rem;
-        }
 
-        /* pink silk corners (bottom left & right) with gold edge */
-        .site-footer::before,
-        .site-footer::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            width: 230px;
-            height: 150px;
-            background: linear-gradient(140deg, var(--pink-300), var(--pink-500) 70%, var(--pink-600));
-            pointer-events: none;
-        }
-
-        .site-footer::before {
-            left: 0;
-            border-top-right-radius: 100% 100%;
-            border-top: 2px solid var(--gold-400);
-            border-right: 2px solid var(--gold-400);
-        }
-
-        .site-footer::after {
-            right: 0;
-            border-top-left-radius: 100% 100%;
-            border-top: 2px solid var(--gold-400);
-            border-left: 2px solid var(--gold-400);
-        }
-
-        .site-footer .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* logo space: paste your own logo here */
-        .footer-brand {
-            text-align: center;
-        }
-
-        .footer-logo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 150px;
-            min-height: 60px;
-        }
-
-        .footer-logo img {
-            height: 60px;
-            width: auto;
-            max-width: 100%;
-        }
-
-        .footer-tagline {
-            margin: .3rem 0 0;
-            font-size: .95rem;
-            color: var(--ink);
-        }
-
-        /* link columns */
-        .footer-title {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 1.05rem;
-            color: var(--ink);
-            margin: 0 0 .9rem;
-        }
-
-        .footer-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer-links li+li {
-            margin-top: .45rem;
-        }
-
-        .footer-links a {
-            color: var(--ink);
-            font-size: .95rem;
-            transition: color .2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--pink-600);
-        }
-
-        /* contact + social */
-        .footer-contact {
-            list-style: none;
-            margin: 0 0 1.1rem;
-            padding: 0;
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-            font-size: .95rem;
-            color: var(--ink);
-        }
-
-        .footer-contact li+li {
-            margin-top: .7rem;
-        }
-
-        .footer-contact i {
-            width: 18px;
-            text-align: center;
-        }
-
-        .footer-contact a {
-            color: var(--ink);
-        }
-
-        .footer-contact a:hover {
-            color: var(--pink-600);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: .8rem;
-        }
-
-        .footer-social a {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: var(--ink);
-            color: var(--white);
-            font-size: .9rem;
-            transition: background .2s, transform .2s;
-        }
-
-        .footer-social a:hover {
-            background: var(--pink-600);
-            transform: translateY(-3px);
-        }
-
-        /* right side message */
-        .footer-note {
-            padding-left: 2rem;
-            border-left: 1px solid var(--pink-200);
-            font-size: 1rem;
-            line-height: 1.5;
-            color: var(--ink);
-        }
-
-        .footer-note p {
-            margin: 0 0 .8rem;
-        }
-
-        .footer-heart {
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-            color: var(--pink-500);
-        }
-
-        .footer-heart::before,
-        .footer-heart::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--pink-300);
-        }
-
-        /* bottom bar */
-        .footer-bottom {
-            position: relative;
-            z-index: 1;
-            margin-top: 2.2rem;
-            border-top: 1px solid var(--gold-400);
-            text-align: center;
-            padding: 1.3rem 1rem 1.6rem;
-            font-size: .9rem;
-            color: var(--ink);
-        }
-
-        /* tablet & mobile */
-        @media (max-width:991.98px) {
-            .footer-brand {
-                margin-bottom: .5rem;
-            }
-
-            .footer-note {
-                padding-left: 0;
-                border-left: 0;
-                text-align: center;
-            }
-
-            .site-footer::before,
-            .site-footer::after {
-                width: 130px;
-                height: 90px;
-            }
-        }
-
-        @media (max-width:575.98px) {
-
-            .footer-contact li,
-            .footer-social {
-                justify-content: flex-start;
-            }
-        }
-    </style>
 
 
     <!-- ================= FOOTER ================= -->
@@ -1461,33 +1164,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(function () {
-            // mobile: tap the arrow to open/close a submenu (accordion)
-            $('.sub-toggle').on('click', function () {
-                var $li = $(this).closest('.has-sub');
-                $li.toggleClass('open').siblings('.has-sub').removeClass('open');
-                $(this).attr('aria-expanded', $li.hasClass('open'));
-            });
+    <script src="./assets/script.js"></script>
 
-            // parent links with no page: do nothing on desktop, toggle submenu on mobile
-            $('.no-link').on('click', function (e) {
-                e.preventDefault();
-                if (window.innerWidth < 992) $(this).siblings('.sub-toggle').trigger('click');
-            });
-
-            // reset submenus when going back to desktop width
-            $(window).on('resize', function () {
-                if (window.innerWidth >= 992) $('.has-sub').removeClass('open');
-            });
-
-            // mark the current page link as active
-            var page = location.pathname.split('/').pop() || 'index.html';
-            $('.main-nav .nav-link').each(function () {
-                if ($(this).attr('href') === page) $(this).addClass('active');
-            });
-        });
-    </script>
 </body>
 
 </html>
